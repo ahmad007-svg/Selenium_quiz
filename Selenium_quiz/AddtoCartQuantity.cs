@@ -11,9 +11,8 @@ using OpenQA.Selenium.Support.UI;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Selenium_quiz
 {
-    public class AddCart:GeneralClass
+    public class AddtoCartQuantity :GeneralClass
     {
-
         By signUpBtn = By.XPath("//a[normalize-space()='Signup / Login']");
         By email1 = By.XPath("//input[@data-qa='login-email']");
         By password1 = By.XPath("//input[@data-qa='login-password']");
@@ -22,10 +21,10 @@ namespace Selenium_quiz
         By add1 = By.XPath("(//i[@class='fa fa-plus-square'])[1]");
         By add2 = By.XPath("//button[@class='btn btn-default cart']");
         By view = By.XPath("//u[text()='View Cart']");
-
+        By quant = By.CssSelector("body > section > div > div > div.col-sm-9.padding-right > div.product-details > div.col-sm-7 > div > span > label");
         By checkout = By.XPath("//a[text()='Proceed To Checkout']");
 
-        GeneralClass obj5 = new GeneralClass();
+        GeneralClass obj7 = new GeneralClass();
 
         public void crty(string maile, string pwd)
         {
@@ -51,12 +50,22 @@ namespace Selenium_quiz
 
             clk.Click();
 
+            findElement(quant).Click();
 
-           findElement(checkout).Click();
-         
+            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+            screenshot.SaveAsFile(@".\\Screenshot4.png", ScreenshotImageFormat.Png);
+
+
+            WaitforElement(checkout);
+
+            findElement(checkout).Click();
+           
+
 
 
         }
+
     }
 
 }
+

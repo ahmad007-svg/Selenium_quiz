@@ -29,27 +29,7 @@ namespace Selenium_quiz
             findElement(usermail).SendKeys(maile);
             findElement(passwd).SendKeys(pwd);
             findElement(loginbtn).Click();
-            string tex;
-            try
-            {
-                tex = driver.FindElement(By.XPath("//*[@id='utilities-main']/div[1]/div[2]/div/p[1]/a")).GetAttribute("text");
-            }
-            catch
-            {
-                try
-                {
-                    tex = driver.FindElement(By.XPath("//*[@id='utilities-main']/div[1]/div[2]/div/p[1]/a")).GetAttribute("value");
-                }
-                catch
-                {
-                    tex = driver.FindElement(By.XPath("//*[@id='utilities-main']/div[1]/div[2]/div/p[1]/a")).GetAttribute("innerHTML");
-                }
-            }
-
-
-            string expt_rett = tex;
-            Assert.AreEqual(expt_rett, "Ahmad Raza");
-
+          
 
         }
 

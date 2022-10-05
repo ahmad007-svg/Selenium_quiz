@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddCart.cs" />
+    <Compile Include="AddtoCartQuantity.cs" />
     <Compile Include="Existuser.cs" />
     <Compile Include="GeneralClass.cs" />
     <Compile Include="Invoicee.cs" />

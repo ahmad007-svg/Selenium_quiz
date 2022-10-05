@@ -10,6 +10,7 @@ using System.Threading;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Support.UI;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Selenium_quiz
 {
@@ -31,13 +32,13 @@ namespace Selenium_quiz
             else if (browser == "Firefox")
             {
 
-               // driver = new FirefoxDriver();
+                // driver = new FirefoxDriver();
 
             }
             else if (browser == "Edge")
             {
 
-              //  driver = new EdgeDriver();
+                //  driver = new EdgeDriver();
 
             }
             driver.Manage().Window.Maximize();
@@ -122,9 +123,75 @@ namespace Selenium_quiz
             Thread.Sleep(2000);
             js.ExecuteScript("window.scrollBy(0,500);");
         }
+        private bool IsPageReady(IWebDriver driver)
+        {
+            return ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete");
+        }
 
+        private bool IsElementVisible(By by)
+        {
+            if (driver.FindElement(by).Displayed || driver.FindElement(by).Enabled)
+            {
+                return true;
+            }
+            else
+            { return false; }
+        }
+
+        private bool IsClickable(By by)
+        {
+            try
+            {
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool IsElementPresent(By by)
+        {
+            try
+            {
+                driver.FindElement(by);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+        public IWebElement WaitforElement(By by, int timeToReadyElement = 0)
+        {
+            IWebElement element = null;
+            try
+            {
+                if (timeToReadyElement != 0 && timeToReadyElement.ToString() != null)
+                {
+                    PlaybackWait(timeToReadyElement * 1000);
+                }
+                element = driver.FindElement(by);
+            }
+            catch
+            {
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
+                wait.Until(driver => IsPageReady(driver) == true && IsElementVisible(by) == true && IsClickable(by) == true);
+                element = driver.FindElement(by);
+            }
+            return element;
+        }
+
+
+        public static void PlaybackWait(int miliSeconds)
+        {
+            Thread.Sleep(miliSeconds);
+        }
+        public static void Assertt(By by)
+        {
+            IWebElement element = driver.FindElement(by);
+            bool status = element.Displayed;
+            Assert.AreEqual(status, true);
+        }
     }
-
-
-
 }

@@ -61,7 +61,7 @@ namespace Selenium_quiz
         //GeneralClass obj3 = new GeneralClass();
         public void Down(string name, string email, string pass, string fname, string lname, string comp, string add1, string add2, string statee, string cityy, string zipcode, string mobileno, string coment, string cname1, string cardnoo, string cvc, string exp, string yearr)
         {
-
+            
             Click(AddtoCart);
             Thread.Sleep(3000);
             Click(Continue);
@@ -106,6 +106,8 @@ namespace Selenium_quiz
             Click(PayAndConfirm);
             Click(DownloadInvoice);
             Click(DownloadCont);
+            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+            screenshot.SaveAsFile(@".\\Screenshot4.png", ScreenshotImageFormat.Png);
 
         }
     }

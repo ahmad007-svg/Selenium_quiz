@@ -23,7 +23,7 @@ namespace Selenium_quiz
             obj.seleniumint("Chrome", url);
 
 
-            obj.Signup("Ahmad Raza", "ahmad14@gmail.com", "Ahmad123", "Ahmad", "Raza", "RoyalPark", "Lahore Gulberg", "Lahore Gulberg", "Punjab", "Lahore", "54600", "0387897907");
+            obj.Signup("Ahmad Raza", "ahmad096@gmail.com", "Ahmad123", "Ahmad", "Raza", "RoyalPark", "Lahore Gulberg", "Lahore Gulberg", "Punjab", "Lahore", "54600", "0387897907");
 
 
 
@@ -80,7 +80,7 @@ namespace Selenium_quiz
             obj.seleniumint("Chrome", url);
 
             Invoicee obj3 = new Invoicee();
-            obj3.Down("ahmad", "ahmad9@gmail.com", "Ahmad123", "usman", "raza", "contoursoftware", "Contour software", "Gulberg 3 lahore", "Pakistan", "punjab", "Lahore", "54000", "03005784142", "ok", "ahmad", "03005784142", "123", "2023");
+            obj3.Down("ahmad", "ahmad10@gmail.com", "Ahmad123", "usman", "raza", "contoursoftware", "Contour software", "Gulberg 3 lahore", "Pakistan", "punjab", "Lahore", "54000", "03005784142", "ok", "ahmad", "03005784142", "123", "2023");
 
         }
         [TestMethod]
@@ -104,7 +104,19 @@ namespace Selenium_quiz
             ScrollFun obj3 = new ScrollFun();
 
         }
+        [TestMethod]
 
+        public void cartquantity()
+        {
+            AddCart obj6 = new AddCart();
+
+            string url = "http://automationexercise.com";
+            obj6.seleniumint("Chrome", url);
+
+            obj6.crty("ahmad1@gmail.com", "Ahmad123");
+
+
+        }
 
 
     }

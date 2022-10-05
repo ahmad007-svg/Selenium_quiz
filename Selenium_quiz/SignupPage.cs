@@ -26,6 +26,7 @@ namespace Selenium_quiz
         By clickSignUpBtn = By.XPath("//button[normalize-space()='Signup']");
 
 
+
         By mrr = By.XPath("//input[@id='id_gender1']");
         By name1 = By.Id("name");
         By name2 = By.Id("last_name");
@@ -47,7 +48,10 @@ namespace Selenium_quiz
         By mob = By.Id("mobile_number");
         By btn = By.XPath("//button[text()='Create Account']");
         By ctn = By.XPath("//a[text()='Continue']");
-        By log = By.XPath(" //a[text()='Logout']");
+        
+        By EnterInfo = By.XPath("//b[text()='Enter Account Information']");
+
+        By CreateAcc = By.XPath("//b[text()='Account Created!']");
 
         GeneralClass obj1 = new GeneralClass();
         public void Signup(string name, string maill, string passs, string fnamee, string lnamee, string compy, string addrr, string addrr2, string statee, string citii, string zippp, string mobb)
@@ -62,27 +66,8 @@ namespace Selenium_quiz
             findElement(mail).SendKeys(maill);
             findElement(clickSignUpBtn).Click();
 
-            //wait();
-            //string text;
-            //try
-            //{
-            //    text = driver.FindElement(By.XPath("//*[@id='utilities-main']/div[1]/div[2]/div/p[1]/a")).GetAttribute("text");
-            //}
-            //catch
-            //{
-            //    try
-            //    {
-            //        text = driver.FindElement(By.XPath("//*[@id='utilities-main']/div[1]/div[2]/div/p[1]/a")).GetAttribute("value");
-            //    }
-            //    catch
-            //    {
-            //        text = driver.FindElement(By.XPath("//*[@id='utilities-main']/div[1]/div[2]/div/p[1]/a")).GetAttribute("innerHTML");
-            //    }
-            //}
+            Assertt(EnterInfo);
 
-
-            //string expt_ret = text;
-            //Assert.AreEqual(expt_ret, "Enter Account Information");
 
             findElement(mrr).Click();
             findElement(pass).SendKeys(passs);
@@ -102,36 +87,15 @@ namespace Selenium_quiz
             findElement(zipp).SendKeys(zippp);
             findElement(mob).SendKeys(mobb);
 
-            Screenshot image_username = ((ITakesScreenshot)driver).GetScreenshot();
-            image_username.SaveAsFile("C:\\Users\razaaahm\\Desktop\assignments\\Selenium_quiz\\Selenium_quiz\bin\\Debug\\filenam0.png", ScreenshotImageFormat.Png);
+        
             findElement(btn).Click();
-            //wait();
-            //string texte;
-            //try
-            //{
-            //    texte = driver.FindElement(By.XPath("//*[@id='utilities-main']/div[1]/div[2]/div/p[1]/a")).GetAttribute("text");
-            //}
-            //catch
-            //{
-            //    try
-            //    {
-            //        texte = driver.FindElement(By.XPath("//*[@id='utilities-main']/div[1]/div[2]/div/p[1]/a")).GetAttribute("value");
-            //    }
-            //    catch
-            //    {
-            //        texte = driver.FindElement(By.XPath("//*[@id='utilities-main']/div[1]/div[2]/div/p[1]/a")).GetAttribute("innerHTML");
-            //    }
-            //}
 
-
-            //string expt_rett = texte;
-            //Assert.AreEqual(expt_rett, "Account Created!");
-
+            Assertt(CreateAcc);
             findElement(ctn).Click();
 
-            IWebElement clickk = driver.FindElement(log);
+           //// IWebElement clickk = driver.FindElement(log);
 
-            clickk.Click();
+           // clickk.Click();
 
 
 

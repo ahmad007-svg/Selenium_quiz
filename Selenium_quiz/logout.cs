@@ -23,6 +23,7 @@ namespace Selenium_quiz
         By passwdd = By.Name("password");
         By loginbtn = By.XPath("//button[text()='Login']");
 
+
         By LogoutButton = By.XPath("//i[@class='fa fa-lock']");
 
 
@@ -66,7 +67,7 @@ namespace Selenium_quiz
             findElement(loginbtn).Click();
             wait();
             findElement(LogoutButton).Click();
-            wait();
+           
             //string textt;
             //try
             //{

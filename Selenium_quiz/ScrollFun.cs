@@ -38,9 +38,8 @@ namespace Selenium_quiz
             }
 
 
-            string expt_rett = tex;
-            Assert.AreEqual(expt_rett, "SUBSCRIPTION");
-
+            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+            screenshot.SaveAsFile(@".\\Screenshot4.png", ScreenshotImageFormat.Png);
 
         }
 
